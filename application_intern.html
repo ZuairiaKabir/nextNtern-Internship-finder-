@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Applications</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #d6e2ee;
+            padding: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .table-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Applications</h1>
+
+    <div class="container table-container">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Application ID</th>
+                    <th>Job ID</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="applicationTableBody">
+                <!-- Dynamic rows go here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sample application data (in real case, you'd fetch this from a backend)
+        const applications = [
+            { id: "A001", jobId: "J101", title: "Frontend Developer", company: "TechNova", status: "Pending" },
+            { id: "A002", jobId: "J102", title: "Backend Developer", company: "CodeHub", status: "Shortlisted" },
+            { id: "A003", jobId: "J103", title: "UI/UX Designer", company: "Designify", status: "Rejected" }
+        ];
+
+        function loadApplications() {
+            const tbody = document.getElementById("applicationTableBody");
+            tbody.innerHTML = ""; // Clear existing rows
+
+            applications.forEach((app, index) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+          <td>${app.id}</td>
+          <td>${app.jobId}</td>
+          <td>${app.title}</td>
+          <td>${app.company}</td>
+          <td>${app.status}</td>
+          <td><button class="btn btn-danger btn-sm" onclick="deleteApplication(${index})">Delete</button></td>
+        `;
+
+                tbody.appendChild(row);
+            });
+        }
+
+        function deleteApplication(index) {
+            if (confirm("Are you sure you want to delete this application?")) {
+                applications.splice(index, 1);
+                loadApplications(); // Reload the table
+            }
+        }
+
+        // Load the table initially
+        loadApplications();
+    </script>
+
+</body>
+
+</html>
