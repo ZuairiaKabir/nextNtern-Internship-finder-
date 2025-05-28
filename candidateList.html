@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applicants - nextNtern</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .header {
+      background: linear-gradient(to right, #edf4ff, #e3f1f6);
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
+
+    .applicants-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .job-title {
+      color: #1c1a85;
+      border-bottom: 2px solid #1c1a85;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .applicant-card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .applicant-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+
+    .applicant-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .applicant-name {
+      color: #1c1a85;
+      font-weight: 600;
+    }
+
+    .applicant-status {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .status-new {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .status-reviewed {
+      background-color: #cce5ff;
+      color: #004085;
+    }
+
+    .status-rejected {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .action-btn {
+      padding: 5px 15px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-right: 10px;
+    }
+
+    .btn-view {
+      background-color: #1c1a85;
+      color: white;
+    }
+
+    .btn-view:hover {
+      background-color: #00b6c4;
+    }
+
+    .btn-accept {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn-reject {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    .filter-options {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h3><i class="fas fa-users"></i> Applicants for: <span id="current-job-title">Junior Developer
+              Internship</span></h3>
+          <p class="text-muted">NextNtern • Posted on May 15, 2025</p>
+        </div>
+        <div>
+          <a href="employer-dashboard.html" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Jobs
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="applicants-container">
+    <!-- Search and Filter -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="search-box">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search applicants...">
+            <button class="btn btn-outline-secondary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="filter-options">
+          <select class="form-select">
+            <option selected>Filter by status</option>
+            <option value="all applicants">All Applicants</option>
+            <option value="new">New</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+          </select>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Applicants List -->
+    <div class="applicants-list">
+      <!-- Applicant 1 -->
+      <div class="applicant-card">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img src="images/zuairia.jpeg" class="rounded-circle" alt="Applicant">
+          </div>
+          <div class="col-md-4">
+            <h5 class="applicant-name">Zuairia Kabir</h5>
+            <p class="mb-1"><i class="fas fa-graduation-cap"></i> Computer Science, BUP</p>
+            <p class="mb-1"><i class="fas fa-calendar-alt"></i> Applied on May 20, 2025</p>
+          </div>
+          <div class="col-md-3">
+            <span class="applicant-status status-new">New</span>
+            <div class="mt-2">
+              <span class="badge bg-primary">Skills: Java, Python</span>
+            </div>
+          </div>
+          <div class="col-md-3 text-end">
+            <a href="intern_profile.html" class="action-btn btn-view">
+              <i class="fas fa-eye"></i> View
+            </a>
+
+            <button class="action-btn btn-accept">
+              <i class="fas fa-check"></i> Accept
+            </button>
+            <button class="action-btn btn-reject">
+              <i class="fas fa-times"></i> Reject
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applicant 2 -->
+      <div class="applicant-card">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img src="images/shruti.jpeg" class="rounded-circle" alt="Applicant">
+          </div>
+          <div class="col-md-4">
+            <h5 class="applicant-name">Shruti Khisa</h5>
+            <p class="mb-1"><i class="fas fa-graduation-cap"></i> Software Engineering, BUP</p>
+            <p class="mb-1"><i class="fas fa-calendar-alt"></i> Applied on May 18, 2025</p>
+          </div>
+          <div class="col-md-3">
+            <span class="applicant-status status-reviewed">Reviewed</span>
+            <div class="mt-2">
+              <span class="badge bg-primary">Skills: JavaScript, React</span>
+            </div>
+          </div>
+          <div class="col-md-3 text-end">
+            <button class="action-btn btn-view">
+              <i class="fas fa-eye"></i> View
+            </button>
+            <button class="action-btn btn-accept">
+              <i class="fas fa-check"></i> Accept
+            </button>
+            <button class="action-btn btn-reject">
+              <i class="fas fa-times"></i> Reject
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applicant 3 -->
+      <div class="applicant-card">
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <img src="images/diba.jpeg" class="rounded-circle" alt="Applicant">
+          </div>
+          <div class="col-md-4">
+            <h5 class="applicant-name">Shaira Akther</h5>
+            <p class="mb-1"><i class="fas fa-graduation-cap"></i> CSE, BUP</p>
+            <p class="mb-1"><i class="fas fa-calendar-alt"></i> Applied on May 16, 2025</p>
+          </div>
+          <div class="col-md-3">
+            <span class="applicant-status status-rejected">Rejected</span>
+            <div class="mt-2">
+              <span class="badge bg-primary">Skills: C++, SQL</span>
+            </div>
+          </div>
+          <div class="col-md-3 text-end">
+            <button class="action-btn btn-view">
+              <i class="fas fa-eye"></i> View
+            </button>
+            <button class="action-btn btn-accept">
+              <i class="fas fa-check"></i> Accept
+            </button>
+            <button class="action-btn btn-reject">
+              <i class="fas fa-times"></i> Reject
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation" class="mt-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Handle applicant actions
+    document.querySelectorAll('.btn-view').forEach(button => {
+      button.addEventListener('click', function () {
+        //alert('Viewing applicant details would open here');
+      });
+    });
+
+    document.querySelectorAll('.btn-accept').forEach(button => {
+      button.addEventListener('click', function () {
+        const card = this.closest('.applicant-card');
+        const status = card.querySelector('.applicant-status');
+        status.textContent = 'Accepted';
+        status.className = 'applicant-status status-reviewed';
+        card.setAttribute('data-status', 'accepted');
+        alert('Applicant has been accepted');
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll('.btn-reject').forEach(button => {
+      button.addEventListener('click', function () {
+        const card = this.closest('.applicant-card');
+        const status = card.querySelector('.applicant-status');
+        status.textContent = 'Rejected';
+        status.className = 'applicant-status status-rejected';
+        card.setAttribute('data-status', 'rejected');
+        alert('Applicant has been rejected');
+        applyFilters();
+      });
+    });
+
+    // Search and filter functionality
+    const searchInput = document.querySelector('.search-box input');
+    const filterSelect = document.querySelector('.filter-options select');
+    const applicantCards = document.querySelectorAll('.applicant-card');
+
+    searchInput.addEventListener('input', applyFilters);
+    filterSelect.addEventListener('change', applyFilters);
+
+    function applyFilters() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedFilter = filterSelect.value.toLowerCase();
+
+      applicantCards.forEach(card => {
+        const name = card.querySelector('.applicant-name').textContent.toLowerCase();
+        const status = card.getAttribute('data-status') || 'new';
+
+        const matchesSearch = name.includes(searchTerm);
+        const matchesFilter = selectedFilter === 'filter by status' || selectedFilter === 'all applicants' || status === selectedFilter;
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Initialize status data attributes
+    document.querySelectorAll('.applicant-card').forEach(card => {
+      const statusText = card.querySelector('.applicant-status').textContent.trim().toLowerCase();
+      card.setAttribute('data-status', statusText);
+    });
+  </script>
+
+</body>
+
+</html>
